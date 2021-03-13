@@ -1,0 +1,14 @@
+@import 'main-styles';
+@import '../components/Nav/nav';
+@import '../components/Categories/categories';
+@import '../components/Car/car';
+@import '../components/About/about';
+
+html, body {
+    height: 100%;
+  }
+
+body{
+    background: rgb(113,194,176);
+    background: linear-gradient(315deg, rgba(113,194,176,1) 0%, rgba(56,18,93,1) 100%);
+}
