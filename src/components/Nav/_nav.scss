@@ -4,17 +4,18 @@
     justify-content: space-between;
     align-items: center;
 
-    h1{
+    .nav-name{
         color: #fff;
         margin-left: 40px;
     }
 
-    ul + h1{
-        transform: scale(-1, 1);
+    .search{
         margin-right: 40px;
+        color: #fff;
+        font-size: 25px;
     }
 
-    ul{
+    .nav-ul{
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -23,6 +24,10 @@
         li{
             padding-right: 20px;
             font-size: 20px;
+        }
+
+        a{
+            text-decoration: none;
             color: #fff;
         }
     }
