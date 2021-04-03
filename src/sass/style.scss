@@ -8,11 +8,79 @@
 
 
 html, body {
-  height: 100%;
   font-family: 'Montserrat', sans-serif;
 }
 
-body{
-    background: rgb(113,194,176);
-    background: linear-gradient(315deg, rgba(113,194,176,1) 0%, rgba(56,18,93,1) 100%);
+.wrapper{
+  height: 100%;
+}
+
+.cat-wrapper{
+  height: 80.3vh;
+}
+
+.comp-wrapper{
+  height: 86.8vh;
+}
+
+.cont-wrapper{
+  height: 86.8vh;
+}
+
+.home-bg{
+  background: rgb(113,194,176) linear-gradient(315deg, rgba(113,194,176,1) 0%, rgba(56,18,93,1) 100%) fixed;
+}
+
+.cat-bg{
+  
+  background: rgb(30,29,29) linear-gradient(315deg, rgba(222,74,74,1)  0%, rgba(30,29,29,1) 100%) fixed;
+}
+
+.comp-bg{
+  background: rgb(185,43,39) linear-gradient(315deg, rgba(185,43,39,1) 0%, rgba(10,54,149,1) 100%) fixed;
+}
+
+.cont-bg{
+  background: rgb(46,191,145) linear-gradient(315deg, rgba(46,191,145,1) 0%, rgba(131,96,195,1) 100%) fixed;
+}
+
+
+.true{
+  filter: blur(3px);
+}
+
+.ul-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.ul-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.ul-exit {
+  opacity: 1;
+}
+.ul-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.car-list{
+  list-style: none;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+  li{
+    z-index: 5;
+  }
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
 }

@@ -1,62 +1,160 @@
-.hero-info{
-    &:before, 
-    &:after, 
-    &>:last-child:before, 
-    &>:last-child:after {
-        position: absolute;
-        width: 50px; 
-        height: 50px;
-        border-color: white; 
-        border-style: solid;
-        content: ' ';
-    }
-    
-    &:before {
-        top: -5px;
-        left: -5px;
-        border-width: 1px 0 0 1px
-    }
-    
-    &:after {
-        top: -5px;
-        right: -5px;
-        border-width: 1px 1px 0 0
-    }
-    
-    &>:last-child:before {
-        bottom: -5px;
-        right: -5px;     
-        border-width: 0 1px 1px 0
-    }
-    
-    &>:last-child:after {
-        bottom: -5px;
-        left: -5px;
-        border-width: 0 0 1px 1px
-    }
+.hero-info {
+  &:before,
+  &:after,
+  & > :last-child:before,
+  & > :last-child:after {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-color: white;
+    border-style: solid;
+    content: " ";
+    transition: all 0.5s cubic-bezier(0.11, 0, 0.5, 0);
+  }
 
-    margin: 7rem 5rem;
-    position:relative;
-    width: 50%;
-    height: 200px;
+  &:before {
+    top: -5px;
+    left: -5px;
+    border-width: 1px 0 0 1px;
+  }
+
+  &:after {
+    top: -5px;
+    right: -5px;
+    border-width: 1px 1px 0 0;
+  }
+
+  & > :last-child:before {
+    bottom: -5px;
+    right: -5px;
+    border-width: 0 1px 1px 0;
+  }
+
+  & > :last-child:after {
+    bottom: -5px;
+    left: -5px;
+    border-width: 0 0 1px 1px;
+  }
+
+  &:hover {
+    &:before,
+    &:after,
+    & > :last-child:before,
+    & > :last-child:after {
+      width: 351px;
+      height: 140px;
+    }
+  }
+
+  transition: all 0.2s ease-in-out;
+  margin: 40px 50px;
+  position: relative;
+  width: 45%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+
+  h1 {
+    color: #fff;
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  p {
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+.hero-info + .hero-info {
+  margin-left: 760px;
+}
+
+$anime-time: 8s;
+$clip-distance: 0.05;
+$clip-size: 320px * (1 + $clip-distance * 2);
+$path-width: 2px;
+
+%full-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.inst {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  height: 100vh;
+
+  h1 {
+    color: #fff;
+  }
+
+  p {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  div {
+    @extend %full-fill;
+    margin: 300px auto;
+    color: #fff;
+    width: 320px;
+    height: 320px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-flow: column;
-    
-    h1{
-        color: #fff;
-        position: absolute;
-        top: 10%;
-        display: flex;
+
+    &::before,
+    &::after {
+      @extend %full-fill;
+      content: "";
+      z-index: 1;
+      margin: -1 * $clip-distance * 100%;
+      box-shadow: inset 0 0 0 $path-width;
+      animation: clipMe $anime-time linear infinite;
     }
 
-    p{
-        color: #fff;
-        text-align: center;
-        font-size: 20px;
-        position: absolute;
-        top: 50%;
-        display: flex;
+    &::before {
+      animation-delay: $anime-time * -0.5;
     }
+
+    @keyframes clipMe {
+      0%,
+      100% {
+        clip: rect(0px, $clip-size, $path-width, 0px);
+      }
+      25% {
+        clip: rect(0px, $path-width, $clip-size, 0px);
+      }
+      50% {
+        clip: rect($clip-size - $path-width, $clip-size, $clip-size, 0px);
+      }
+      75% {
+        clip: rect(0px, $clip-size, $clip-size, $clip-size - $path-width);
+      }
+    }
+  }
+
+  img {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    top: 300px;
+    left: 180px;
+
+    & + img {
+      top: 300px;
+      left: 1100px;
+      filter: invert(100%);
+    }
+  }
 }
