@@ -1,23 +1,10 @@
 import React from 'react'
 import CarBlock from './cBlock'
-import bmw from '../files/bmw.png'
 
-function Cat() {
-
+function Cat ({data}){
     return(
         <div className='categories'>
-            <CarBlock model={bmw} />
-            <CarBlock />
-            <CarBlock />
-            <CarBlock />
-            <CarBlock />
-            <CarBlock />
-            <CarBlock />
-            <CarBlock />
-            <CarBlock />
-            <CarBlock />
-            <CarBlock />
-            <CarBlock />
+            <CarBlock data={data} />
         </div>
     )
 }

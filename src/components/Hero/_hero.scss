@@ -47,7 +47,7 @@
   }
 
   transition: all 0.2s ease-in-out;
-  margin: 40px 50px;
+  padding: 40px 50px;
   position: relative;
   width: 45%;
   height: 250px;
@@ -90,7 +90,7 @@ $path-width: 2px;
   position: relative;
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 120px;
   height: 100vh;
 
   h1 {
@@ -149,11 +149,11 @@ $path-width: 2px;
     height: 200px;
     width: 200px;
     top: 300px;
-    left: 180px;
+    left: 110px;
 
     & + img {
       top: 300px;
-      left: 1100px;
+      left: 1090px;
       filter: invert(100%);
     }
   }

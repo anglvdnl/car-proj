@@ -1,10 +1,11 @@
 import React from 'react';
 import Cat from '../Categories/Cat'
 
-function Categories() {
+function Categories ({data}) {
+
     return(
         <div className='cat-wrapper'>
-            <Cat />
+                <Cat data={data} />
         </div>
     );
 }

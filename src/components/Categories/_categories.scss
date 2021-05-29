@@ -4,21 +4,32 @@
     align-items: flex-start;
     flex-wrap: wrap;
     width: 70%;
-    margin: 50px auto;
+    margin: 0 auto;
+    padding-top: 50px;
+
+    &:hover .car{
+      filter:blur(3px);
+      opacity:.5;
+      box-shadow:none;
+    }
+
+    &:hover .car:hover{
+      border-radius: 20px;
+      filter:blur(0px);
+      opacity:1;
+      box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+    }
   }
 
-  .car-block{
+  .car{
     position: relative;
     background-color: rgba($color: #fff, $alpha: 0.3);
     width: 130px;
     height: 140px;  
     margin: 20px;
-    transition: all 0.2s;
-    border-radius: 20px;
-
-    &:hover{
-      transform: scale(1.1);
-    }
+    transition: all 0.4s;
+    backface-visibility: hidden;
+    border-radius: 10px;
 
     img{
       opacity: 0.7;

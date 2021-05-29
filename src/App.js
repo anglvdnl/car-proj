@@ -3,9 +3,9 @@ import Nav from './components/Nav/Nav'
 
 function App() {
   return (
-    <div className="wrapper">
+    <div className='wrapper'>
         <Nav />
-    </div>
+    </div>  
   );
 }
 

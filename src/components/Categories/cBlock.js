@@ -1,29 +1,15 @@
-import React, {useState} from 'react'
-import classNames from 'classnames/dedupe';
-import { CSSTransition } from 'react-transition-group';
+import React from 'react'
+import { Link } from 'react-router-dom';
 
-function CarBlock(props) {
-    const [toggle, setToggle] = useState(false)
-
-    let classes = {'img-block': true}
-    classes[toggle] = true
-
+function CarBlock ({data}) {
     return(
-        <div onClick={() => setToggle(!toggle)} className='car-block'>
-            <img className={classNames(classes)} src={props.model} />
-                <CSSTransition
-                in={toggle}
-                timeout={300}
-                classNames='ul'
-                unmountOnExit>
-                <ul className='car-list'>
-                    <li>
-                        <a href='#'>BMW Series 7</a>
-                    </li>
-                </ul>   
-              </CSSTransition>
-        </div>
-        
+        <>
+        {data.map((car,index) => ( 
+            <Link to={`/comparison/${car.brand}`} key={index} className='car'>
+                <img src={car.img}/>
+            </Link>
+         ))}
+        </>
     );
 }
 

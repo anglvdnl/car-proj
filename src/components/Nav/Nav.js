@@ -1,47 +1,62 @@
-import React, {useState} from "react";
+import React from "react";
 import { IoPersonCircleOutline } from "react-icons/io5";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
 import Home from '../Pages/Home'
 import Categories from '../Pages/Categories'
 import Comparison from '../Pages/Comparison'
 import Contacts from '../Pages/Contacts'
-import classNames from 'classnames/dedupe';
+import bmw from '../files/bmw.svg';
+import audi from '../files/audi.svg';
+import lambo from '../files/lambo.svg'
 
 
 function Nav() {
-  const [bg, setBg] = useState('home-bg')
+  const data = [
+    {
+        brand: 'bmw',
+        img: bmw,
+        text: 'BMW',
+    },
 
-  let classes = {'wrapper': true}
-  classes[bg] = true
+    {
+        brand: 'audi',
+        img: audi,
+        text: 'AUDI',
+    },
+
+    {
+        brand: 'lambo',
+        img: lambo,
+    },
+]
+
 
   return (
-    <div className={classNames(classes)}>
         <Router>
-          <div>
             <nav>
               <h1 className="nav-name">CC</h1>
               <ul className="nav-ul">
                 <li>
-                  <Link onClick={() => setBg('home-bg')} to="/">Home</Link>
+                  <NavLink exact={true} activeClassName="active" to="/">Home</NavLink>
                 </li>
                 <li>
-                  <Link onClick={() => setBg('cat-bg')} to="/categories">Categories</Link>
+                  <NavLink activeClassName="active" to="/categories">Categories</NavLink>
                 </li>
                 <li>
-                  <Link onClick={() => setBg('comp-bg')} to="/comparison">Comparison</Link>
+                  <NavLink activeClassName="active" to="/comparison">Comparison</NavLink>
                 </li>
                 <li>
-                  <Link onClick={() => setBg('cont-bg')} to="/contacts">Contacts</Link>
+                  <NavLink activeClassName="active" to="/contacts">Contacts</NavLink>
                 </li>
               </ul>
               <IoPersonCircleOutline className="signup" />
             </nav>
             <Switch>
               <Route path="/categories">
-                <Categories />
+                <Categories data={data} />
               </Route>
               <Route path="/comparison">
-                <Comparison />
+                <Comparison data={data} />
               </Route>
               <Route path="/contacts">
                 <Contacts />
@@ -50,9 +65,7 @@ function Nav() {
                 <Home />
               </Route>
             </Switch>
-          </div>
         </Router>
-    </div>
   );
 }
 
