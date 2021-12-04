@@ -1,10 +1,10 @@
 import React from 'react'
 import CarBlock from './cBlock'
 
-function Cat ({data}){
+function Cat ({data, addCar, imgs}){
     return(
         <div className='categories'>
-            <CarBlock data={data} />
+            <CarBlock imgs={imgs} data={data} addCar={addCar} />
         </div>
     )
 }

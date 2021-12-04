@@ -1,13 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
-function CarBlock ({data}) {
+function CarBlock ({data, addCar, imgs}) {
     return(
         <>
-        {data.map((car,index) => ( 
-            <Link to={`/comparison/${car.brand}`} key={index} className='car'>
-                <img src={car.img}/>
-            </Link>
+        {imgs.map((carimg,index) => ( 
+            <div key={index} className='car' onClick={() => addCar(index)}> 
+                <img alt='' src={carimg.img}/>
+            </div>
          ))}
         </>
     );

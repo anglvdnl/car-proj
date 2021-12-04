@@ -56,6 +56,7 @@ nav .signup {
   margin-right: 40px;
   color: #000;
   font-size: 30px;
+  cursor: pointer;
 }
 
 nav .nav-ul {
@@ -181,10 +182,202 @@ nav .nav-ul .active:before {
   transition: all 0.2s;
 }
 
+.car-active {
+  background-color: white;
+}
+
 .full-card {
   height: 600px;
   width: 1400px;
   background-color: rgba(255, 255, 255, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.reset {
+  text-align: center;
+  border: 0;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.compare {
+  text-align: center;
+  border: 0;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.compblock .char {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.compblock .char h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.compblock .char .mchar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.compblock .char .special {
+  font-size: 25px;
+}
+
+.label-before, .contacts .git field input:valid + label::before, .contacts .git field input:focus + label::before {
+  line-height: 20px;
+  font-size: 12px;
+  top: 10px;
+  background: transparent;
+  padding: 0 6px;
+  left: 9px;
+  color: #000;
+}
+
+.contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80vh;
+}
+
+.contacts .git {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 50px;
+}
+
+.contacts .git h1 {
+  color: #000;
+}
+
+.contacts .git field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 0;
+}
+
+.contacts .git field div {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.contacts .git field div label::before {
+  content: attr(title);
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #777;
+  -webkit-transition: 300ms all;
+  transition: 300ms all;
+}
+
+.contacts .git field input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: transparent;
+  border: 1px solid #000;
+  height: 54px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 0;
+  outline: none;
+  padding: 0 20px;
+}
+
+.contacts .git field input:focus {
+  outline: 0;
+}
+
+.contacts .git field .submit-btn {
+  margin-top: 15px;
+  outline: none;
+  background: none;
+  width: 100px;
+  height: 40px;
+  border: 1px solid #000;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.contacts .git field .submit-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.contacts .clinks div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  font-size: 40px;
+  color: #fff;
+  padding: 10px;
 }
 
 .hero-info {
@@ -384,6 +577,29 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
+html {
+  overflow-y: overlay;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #515151;
+}
+
 .wrapper {
   height: 100%;
 }
@@ -423,8 +639,32 @@ html, body {
   background: #2ebf91 linear-gradient(315deg, #2ebf91 0%, #8360c3 100%) fixed;
 }
 
+.signup-wrapper {
+  background: linear-gradient(315deg, #b030cf 0%, #9f2727 100%) fixed;
+  height: 89.5vh;
+}
+
 a {
   text-decoration: none;
   color: #fff;
+}
+
+.modal {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: fixed;
+  background: #fff;
+  text-align: center;
+  z-index: 10;
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+}
+
+.modal .error {
+  color: #832020;
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */

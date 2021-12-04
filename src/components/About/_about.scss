@@ -1,0 +1,102 @@
+.label-before {
+	line-height: 20px;
+	font-size: 12px;
+	top: 10px;
+	background: transparent;
+	padding: 0 6px;
+	left: 9px;
+    color: #000;
+}
+
+.contacts{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+
+    .git{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        background-color: rgba($color: #fff, $alpha: 0.6);
+        padding: 50px;
+
+        h1{
+            color: #000;
+        }
+
+        field{
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            padding: 20px 0;
+
+            div{
+                position: relative;
+                margin-bottom: 15px;
+                label::before {
+                    content: attr(title);
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                    line-height: 40px;
+                    font-size: 14px;
+                    color: #777;
+                    transition: 300ms all;
+                }
+            }
+
+            input{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                border-radius: 3px;
+                appearance: none;
+                box-shadow: none;
+                background: transparent;
+                border: 1px solid #000;
+                height: 54px;
+                font-size: 16px;
+                font-weight: 400;
+                border-radius: 0;
+                outline: none;
+                padding: 0 20px;
+
+                &:focus{
+                    outline: 0;
+                }
+                &:valid + label::before {
+                    @extend .label-before;
+                }
+                &:focus + label::before {
+                    @extend .label-before;
+                }
+            }
+
+            .submit-btn{
+                margin-top: 15px;
+                outline: none;
+                background: none;
+                width: 100px;
+                height: 40px;
+                border: 1px solid #000;
+                transition: all 0.2s;
+
+                &:hover{
+                    background-color: #000;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .clinks{
+        div{
+            display: flex;
+            flex-flow: row;
+            font-size: 40px;
+            color: #fff;
+            padding: 10px;
+        }
+    }
+}

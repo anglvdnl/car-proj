@@ -1,11 +1,11 @@
 import React from 'react';
 import Cat from '../Categories/Cat'
 
-function Categories ({data}) {
+function Categories ({data, addCar, imgs}) {
 
     return(
         <div className='cat-wrapper'>
-                <Cat data={data} />
+                <Cat imgs={imgs} data={data} addCar={addCar} />
         </div>
     );
 }

@@ -1,13 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Route } from 'react-router-dom';
 import FullCard from '../Car/FullCard'
 
-function Comparison({data}) {
+function Comparison({data,cars, models, clearCars}) {
     return(
         <div className='comp-wrapper'>
-            <Route path='/comparison/:brand'>
-                <FullCard data={data} />
-            </Route>
+            <FullCard clearCars={clearCars} cars={cars} data={data} />
         </div>
     );
 }
