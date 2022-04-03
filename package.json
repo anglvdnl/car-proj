@@ -1,4 +1,5 @@
 {
+  "start": "node server/server.js",
   "name": "car-proj",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +20,7 @@
     "@types/react-transition-group": "^4.4.1",
     "bootstrap": "^5.1.3",
     "classnames": "^2.2.6",
+    "express": "^4.17.3",
     "firebase": "^9.1.1",
     "react": "^17.0.1",
     "react-bootstrap": "^2.0.0-rc.0",
@@ -58,3 +60,4 @@
     "json-loader": "^0.5.7"
   }
 }
+
