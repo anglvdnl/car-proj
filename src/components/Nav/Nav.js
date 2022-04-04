@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
-import AccModal from "../AccountModal/AccModal";
-import Login from '../AccountModal/Login'
-import { AuthProvider } from '../../contexts/AuthContext'
 import Home from '../Pages/Home'
 import Categories from '../Pages/Categories'
 import Comparison from '../Pages/Comparison'
@@ -91,28 +88,24 @@ const clearCars = () => {
             </ul>
             <NavLink to='/signup'><IoPersonCircleOutline className="signup" /></NavLink>
           </nav>
-          <AuthProvider>
-            <Switch>
-              <Route path="/categories">
-                <Categories addCar={addCar} data={data} imgs={imgs} />
-              </Route>
-              <Route path="/comparison">
-                <Comparison clearCars={clearCars} cars={cars} data={data} />
-              </Route>
-              <Route path="/contacts">
-                <Contacts />
-              </Route>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path='/signup' >
-                <AccModal />
-              </Route>
-              <Route path='/login'>
-                <Login />
-              </Route>
-            </Switch>
-          </AuthProvider>
+          <Switch>
+            <Route path="/categories">
+              <Categories addCar={addCar} data={data} imgs={imgs} />
+            </Route>
+            <Route path="/comparison">
+              <Comparison clearCars={clearCars} cars={cars} data={data} />
+            </Route>
+            <Route path="/contacts">
+              <Contacts />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path='/signup' >
+            </Route>
+            <Route path='/login'>
+            </Route>
+          </Switch>
       </Router>
   );
 }
