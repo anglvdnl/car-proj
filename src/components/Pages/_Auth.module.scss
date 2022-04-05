@@ -1,0 +1,28 @@
+.Auth{
+    background: linear-gradient(315deg, rgba(176,48,207,1) 0%, rgba(159,39,39,1) 100%) fixed;
+    height: 89.5vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    flex-grow: 1;
+    width: 100%;
+
+    h1{
+      color: #fff;
+      text-align: center;
+    }
+}
+
+.AuthDiv{
+  width: 50%;
+}
+
+.AuthBtn{
+  outline: none;
+  padding: 5px 8px;
+  background-color: #eee;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #000;
+  margin-left: 20px;
+}

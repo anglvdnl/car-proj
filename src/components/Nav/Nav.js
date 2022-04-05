@@ -5,6 +5,7 @@ import Home from '../Pages/Home'
 import Categories from '../Pages/Categories'
 import Comparison from '../Pages/Comparison'
 import Contacts from '../Pages/Contacts'
+import Auth from '../Pages/Auth'
 import bmw from '../files/bmw.svg';
 import audi from '../files/audi.svg';
 
@@ -86,9 +87,12 @@ const clearCars = () => {
                 <NavLink activeClassName="active" to="/contacts">Contacts</NavLink>
               </li>
             </ul>
-            <NavLink to='/signup'><IoPersonCircleOutline className="signup" /></NavLink>
+            <NavLink to="/authentication"><IoPersonCircleOutline className="signup" /></NavLink>
           </nav>
           <Switch>
+            <Route path="/authentication">
+              <Auth />
+            </Route>
             <Route path="/categories">
               <Categories addCar={addCar} data={data} imgs={imgs} />
             </Route>
@@ -100,10 +104,6 @@ const clearCars = () => {
             </Route>
             <Route exact path="/">
               <Home />
-            </Route>
-            <Route path='/signup' >
-            </Route>
-            <Route path='/login'>
             </Route>
           </Switch>
       </Router>
