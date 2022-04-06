@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import classes from './_Auth.module.scss'
 import Input from '../Authorization/Input/Input'
 import is from 'is_js'
-import axios from 'axios'
+import { auth } from '../../store/actions/auth'
+import { connect } from 'react-redux'
 
-export default class Auth extends Component {
+class Auth extends Component {
 
     state = {
         isFormValid: false,
@@ -36,36 +37,24 @@ export default class Auth extends Component {
         }
     }
 
-    loginHandler = async () => {
-        const authData = {
-            email: this.state.formControls.email.value,
-            password: this.state.formControls.password.value,
-            returnSecureToken: true
-        }
-        try {
-            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCvVAJCPpaQdHUAnXLLs6irg75qD3VPw9U', authData)
-            console.log(response.data)
-        } catch (error) {
-            console.log(error)
-        }
+    loginHandler = () => {
+        this.props.auth(
+            this.state.formControls.email.value,
+            this.state.formControls.password.value,
+            true
+        )
     }
 
-    registerHandler = async () => {
-        const authData = {
-            email: this.state.formControls.email.value,
-            password: this.state.formControls.password.value,
-            returnSecureToken: true
-        }
-        try {
-            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCvVAJCPpaQdHUAnXLLs6irg75qD3VPw9U', authData)
-            console.log(response.data)
-        } catch (error) {
-            console.log(error)
-        }
+    registerHandler = () => {
+        this.props.auth(
+            this.state.formControls.email.value,
+            this.state.formControls.password.value,
+            false
+        )
     }
 
     submitHandler = event => {
-        event.preventDefauld()
+        event.preventDefaut()
     }
 
     validateControl(value, validation) {
@@ -94,7 +83,7 @@ export default class Auth extends Component {
         const formControls = { ...this.state.formControls }
         const control = { ...formControls[controlName] }
 
-        control.value = event.target.value.slice(-1) == ' ' ? event.target.value.slice(0, -1) : event.target.value
+        control.value = event.target.value.slice(-1) === ' ' ? event.target.value.slice(0, -1) : event.target.value
         control.touched = true
         control.valid = this.validateControl(control.value, control.validation)
 
@@ -159,3 +148,11 @@ export default class Auth extends Component {
         )
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Auth)
