@@ -19,10 +19,18 @@
 
 .AuthBtn{
   outline: none;
-  padding: 5px 8px;
+  padding: 8px 12px;
   background-color: #eee;
-  border: 1px solid #000;
+  border: 0px solid #000;
   border-radius: 5px;
   color: #000;
   margin-left: 20px;
+
+  &[type=signin]{
+    background-color: rgb(135, 232, 138);
+  }
+
+  &[type=signup]{
+    background-color: rgb(232, 135, 135);
+  }
 }

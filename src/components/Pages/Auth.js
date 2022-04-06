@@ -1,22 +1,20 @@
 import React, { Component } from 'react'
 import classes from './_Auth.module.scss'
 import Input from '../Authorization/Input/Input'
-
-function validateEmail(email) {
-    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase())
-}
+import is from 'is_js'
+import axios from 'axios'
 
 export default class Auth extends Component {
 
     state = {
+        isFormValid: false,
         formControls: {
             email: {
                 value: '',
                 type: 'email',
                 label: 'Email',
                 errorMessage: 'Enter a valid email',
-                valid: false,
+                valid: false,   
                 touched: false,
                 validation: {
                     required: true,
@@ -38,12 +36,32 @@ export default class Auth extends Component {
         }
     }
 
-    loginHandler = () => {
-
+    loginHandler = async () => {
+        const authData = {
+            email: this.state.formControls.email.value,
+            password: this.state.formControls.password.value,
+            returnSecureToken: true
+        }
+        try {
+            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCvVAJCPpaQdHUAnXLLs6irg75qD3VPw9U', authData)
+            console.log(response.data)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
-    registerHandler = () => {
-
+    registerHandler = async () => {
+        const authData = {
+            email: this.state.formControls.email.value,
+            password: this.state.formControls.password.value,
+            returnSecureToken: true
+        }
+        try {
+            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCvVAJCPpaQdHUAnXLLs6irg75qD3VPw9U', authData)
+            console.log(response.data)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     submitHandler = event => {
@@ -58,11 +76,11 @@ export default class Auth extends Component {
         let isValid = true
 
         if(validation.required){
-            isValid = value.trim() !== '' && isValid
+            isValid = value.trim() !== ' ' && isValid
         }
 
         if(validation.email) {
-            isValid = validateEmail(value) && isValid
+            isValid = is.email(value) && isValid
         }
 
         if(validation.minLength) {
@@ -76,14 +94,19 @@ export default class Auth extends Component {
         const formControls = { ...this.state.formControls }
         const control = { ...formControls[controlName] }
 
-        control.value = event.target.value
+        control.value = event.target.value.slice(-1) == ' ' ? event.target.value.slice(0, -1) : event.target.value
         control.touched = true
         control.valid = this.validateControl(control.value, control.validation)
 
         formControls[controlName] = control
 
+        let isFormValid = true
+        Object.keys(formControls).forEach(name => {
+            isFormValid = formControls[name].valid && isFormValid
+        })
+
         this.setState({
-            formControls
+            formControls, isFormValid
         })
     }
 
@@ -117,15 +140,17 @@ export default class Auth extends Component {
     
                         <button
                         className={classes.AuthBtn}
-                        type="success"
+                        type="signin"
                         onClick={this.loginHandler}
+                        disabled={!this.state.isFormValid}
                         >
                             Sign in</button>
 
                         <button
                         className={classes.AuthBtn}
-                        type="primary"
+                        type="signup"
                         onClick={this.registerHandler}
+                        disabled={!this.state.isFormValid}
                         >
                             Sign up</button>
                     </form>
