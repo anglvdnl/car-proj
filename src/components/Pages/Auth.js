@@ -54,7 +54,7 @@ class Auth extends Component {
     }
 
     submitHandler = event => {
-        event.preventDefaut()
+        event.preventDefault()
     }
 
     validateControl(value, validation) {
