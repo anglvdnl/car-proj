@@ -1,0 +1,3 @@
+[submodule "car-project24"]
+    path = car-project24
+    url = git://github.com/anglvdnl/car-proj.git

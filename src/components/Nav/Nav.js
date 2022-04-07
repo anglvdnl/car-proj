@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IoPersonCircleOutline } from "react-icons/io5";
-import { BrowserRouter as Router, Switch, Route, NavLink, Redirect, withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, NavLink, Redirect } from "react-router-dom";
 import Home from '../Pages/Home'
 import Categories from '../Pages/Categories'
 import Comparison from '../Pages/Comparison'
@@ -8,6 +8,7 @@ import Contacts from '../Pages/Contacts'
 import Auth from '../Pages/Auth'
 import bmw from '../files/bmw.svg';
 import audi from '../files/audi.svg';
+import lambo from '../files/lambo.png'
 import {connect} from 'react-redux'
 import Logout from "../Logout/Logout";
 import classes from './nav.module.scss'
