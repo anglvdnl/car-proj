@@ -1,3 +1,1 @@
-<p align="center">
-    # CC
-</p>
+<center>This text is centered.</center>
