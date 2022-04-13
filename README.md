@@ -12,7 +12,7 @@ In the near future, the website will include: more relevant information, conveni
 ### Main Frameworks
 
 <ul>
-  <li>React</li><br/>The whole project is written on React, mainly on functional components
-  <li>Redux</li><br/>I used Redux for authentication feature
-  <li>Firebase</li><br/>All account data is kept on remote Firebase database
+  <li>React</li>The whole project is written on React, mainly on functional components
+  <li>Redux</li>I used Redux for authentication feature
+  <li>Firebase</li>All account data is kept on remote Firebase database
 </ul>
